@@ -1,0 +1,24 @@
+# .gitignore - Tell Git which files to avoid tracking.
+
+# Binary and generated formats
+*.mscz
+*.mxl
+*.musicxml
+*.pdf
+*.mid
+*.wav
+*.mp3
+*.zip
+
+# Backup and temporary files
+.mscbackup
+.*.mscx,
+.*.mscz,
+*~
+.*
+
+# System files
+.DS_Store
+
+# Unignores: restore tracking for these files that would otherwise be ignored
+!/data/code-plots/*.pdf
