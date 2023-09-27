@@ -88,12 +88,13 @@ def composer_dates(
 
     composers = get_info()  # what="composers"
 
-    bin_values = range(start, stop + 1, step)  # here include 'stop' in range for use with axis labels, etc.
-    # Cf https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html
-
-    adjusted_bin_values = [*range(start, stop, step)]  # exclude 'stop'
-    adjusted_bin_values.append(stop - 1)  # include one less than 'stop'
-    # NB final bin is one unit (i.e., year) wider than the other bins
+    # Define bin boundaries. Cf https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html
+    # All bins are exclusive of their upper bound, except the final bin, which is inclusive. Because
+    # we use integer units (years of birth and death), that would make the final bin effectively one
+    # unit (i.e. one year) wider than the other bins. Let's adjust for this to avoid overcounting.
+    bin_values = range(start, stop + step, step) # include 'stop' for use with axis labels, etc.
+    adjusted_bin_values = [*bin_values[0:-1], bin_values[-1] - 1] # end final bin a year earlier.
+    # The adjusted bins are equal width.
 
     years_alive = []
     years_active = []
