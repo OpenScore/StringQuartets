@@ -40,24 +40,6 @@ Filename components:
 - `<id>` - the score's unique Musescore ID
 - `.mscx` - the file extension for MuseScore's uncompressed score format.
 
-## Lyric files
-
-Lyric files follow the same naming format, with the extension `.txt`: 
-i.e. `sq<id>.txt`.
-
-These files provide the lyrics (a.k.a. poem, text) for each song separately 
-to assist with cross-referencing and text-based studies.
-The lyrics are as automatically extracted from each relevant part of every score.
-For a typical song, this means exactly one line of text.
-
-## Automatic harmonic analyses
-
-We also provide automatic harmonic analyses for each score in the
-human- and computer-readable "Roman text" standard.
-Files are named `analysis_automatic.rntxt`.
-For more information and more analyses in this format,
-see the [When in Rome meta-corpus repository](https://github.com/MarkGotham/When-in-Rome).
-
 ## Unicode characters in file paths
 
 With the exception of a few unsafe or illegal characters, names of songs,
