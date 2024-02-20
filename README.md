@@ -92,8 +92,23 @@ These scores are released under Creative Commons Zero (CC0). See LICENSE.txt.
 
 We kindly ask that you credit OpenScore String Quartets and provide a link to [OSSQ] or this repository for any public-facing use of these scores.
 
-For academic publications, please cite the report on we published in DLfM:
+For academic publications, please cite the report on we published in DLfM 2023:
 
 ```
-TO FOLLOW IN NOV 2023
+@inproceedings{gotham_openscore_2023,
+	address = {Milan Italy},
+	title = {The “{OpenScore} {String} {Quartet}” {Corpus}},
+	copyright = {All rights reserved},
+	isbn = {9798400708336},
+	url = {https://dl.acm.org/doi/10.1145/3625135.3625155},
+	doi = {10.1145/3625135.3625155},
+	language = {en},
+	urldate = {2023-11-16},
+	booktitle = {Proceedings of the 10th {International} {Conference} on {Digital} {Libraries} for {Musicology}},
+	publisher = {ACM},
+	author = {Gotham, Mark R. H. and Redbond, Maureen and Bower, Bruno and Jonas, Peter},
+	month = nov,
+	year = {2023},
+	pages = {49--57},
+}
 ```
