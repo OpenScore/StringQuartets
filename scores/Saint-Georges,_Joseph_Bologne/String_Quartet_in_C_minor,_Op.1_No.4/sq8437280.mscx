@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <museScore version="3.02">
   <programVersion>3.6.2</programVersion>
-  <programRevision>a732723</programRevision>
+  <programRevision></programRevision>
   <Score>
     <LayerTag id="0" tag="default"></LayerTag>
     <currentLayer>0</currentLayer>
@@ -39914,8 +39914,8 @@
         <hairpinLinePosBelow x="0" y="2.5"/>
         <hairpinHeight>1.3</hairpinHeight>
         <createMultiMeasureRests>1</createMultiMeasureRests>
-        <evenHeaderC>$:composerAbbr: – $:workNumber:</evenHeaderC>
-        <oddHeaderC>$:composerAbbr: – $:workNumber:</oddHeaderC>
+        <evenHeaderC>$:composerAbbr: – $:workNumber: - $I</evenHeaderC>
+        <oddHeaderC>$:composerAbbr: – $:workNumber: - $I</oddHeaderC>
         <tupletMaxSlope>0</tupletMaxSlope>
         <titleFontSize>20</titleFontSize>
         <subTitleFontSize>14</subTitleFontSize>
@@ -55693,15 +55693,16 @@
       <currentLayer>0</currentLayer>
       <Division>480</Division>
       <Style>
-        <pageWidth>8.27</pageWidth>
-        <pageHeight>11.69</pageHeight>
+        <pageWidth>8.27008</pageWidth>
+        <pageHeight>11.6902</pageHeight>
+        <pageEvenLeftMargin>0.592913</pageEvenLeftMargin>
         <measureSpacing>1</measureSpacing>
         <hairpinLinePosAbove x="0" y="-1.5"/>
         <hairpinLinePosBelow x="0" y="2.5"/>
         <hairpinHeight>1.3</hairpinHeight>
         <createMultiMeasureRests>1</createMultiMeasureRests>
-        <evenHeaderC>$:composerAbbr: – $:workNumber:</evenHeaderC>
-        <oddHeaderC>$:composerAbbr: – $:workNumber:</oddHeaderC>
+        <evenHeaderC>$:composerAbbr: – $:workNumber: - $I</evenHeaderC>
+        <oddHeaderC>$:composerAbbr: – $:workNumber: - $I</oddHeaderC>
         <tupletMaxSlope>0</tupletMaxSlope>
         <titleFontSize>20</titleFontSize>
         <subTitleFontSize>14</subTitleFontSize>
@@ -55717,7 +55718,7 @@
         <user2FontSize>16</user2FontSize>
         <user2FontSpatiumDependent>0</user2FontSpatiumDependent>
         <user2Align>center,top</user2Align>
-        <Spatium>1.74978</Spatium>
+        <Spatium>1.75</Spatium>
         </Style>
       <showInvisible>1</showInvisible>
       <showUnprintable>1</showUnprintable>
@@ -55846,8 +55847,8 @@
           </VBox>
         <TBox>
           <height>1</height>
-          <topGap>-2</topGap>
-          <bottomGap>9.5</bottomGap>
+          <topGap>-1.99975</topGap>
+          <bottomGap>9.49881</bottomGap>
           <linked>
             <location>
               <staves>-1</staves>
@@ -64222,7 +64223,7 @@
                 <visible>0</visible>
                 <Segment>
                   <subtype>0</subtype>
-                  <offset x="0" y="2"/>
+                  <offset x="0" y="1.99975"/>
                   <off2 x="0" y="0"/>
                   <visible>0</visible>
                   </Segment>
@@ -64325,7 +64326,7 @@
                 <visible>0</visible>
                 <Segment>
                   <subtype>0</subtype>
-                  <offset x="0" y="2"/>
+                  <offset x="0" y="1.99975"/>
                   <off2 x="0" y="0"/>
                   <visible>0</visible>
                   </Segment>
@@ -65370,7 +65371,7 @@
           </Measure>
         <TBox>
           <height>1</height>
-          <bottomGap>10.5</bottomGap>
+          <bottomGap>10.4987</bottomGap>
           <topMargin>7</topMargin>
           <linked>
             <location>
@@ -65817,7 +65818,7 @@
                 </location>
               </linked>
             <style>Repeat Text Right</style>
-            <offset x="0" y="-4.5"/>
+            <offset x="0" y="-4.49943"/>
             <text>Fine</text>
             <label>fine</label>
             </Marker>
@@ -67319,7 +67320,7 @@
                 <visible>0</visible>
                 <Segment>
                   <subtype>0</subtype>
-                  <offset x="0" y="2"/>
+                  <offset x="0" y="1.99975"/>
                   <off2 x="0" y="0"/>
                   <visible>0</visible>
                   </Segment>
@@ -69608,15 +69609,16 @@
       <currentLayer>0</currentLayer>
       <Division>480</Division>
       <Style>
-        <pageWidth>8.27</pageWidth>
-        <pageHeight>11.69</pageHeight>
+        <pageWidth>8.27008</pageWidth>
+        <pageHeight>11.6902</pageHeight>
+        <pageEvenLeftMargin>0.592913</pageEvenLeftMargin>
         <measureSpacing>1</measureSpacing>
         <hairpinLinePosAbove x="0" y="-1.5"/>
         <hairpinLinePosBelow x="0" y="2.5"/>
         <hairpinHeight>1.3</hairpinHeight>
         <createMultiMeasureRests>1</createMultiMeasureRests>
-        <evenHeaderC>$:composerAbbr: – $:workNumber:</evenHeaderC>
-        <oddHeaderC>$:composerAbbr: – $:workNumber:</oddHeaderC>
+        <evenHeaderC>$:composerAbbr: – $:workNumber: - $I</evenHeaderC>
+        <oddHeaderC>$:composerAbbr: – $:workNumber: - $I</oddHeaderC>
         <tupletMaxSlope>0</tupletMaxSlope>
         <titleFontSize>20</titleFontSize>
         <subTitleFontSize>14</subTitleFontSize>
@@ -69632,7 +69634,7 @@
         <user2FontSize>16</user2FontSize>
         <user2FontSpatiumDependent>0</user2FontSpatiumDependent>
         <user2Align>center,top</user2Align>
-        <Spatium>1.74978</Spatium>
+        <Spatium>1.75</Spatium>
         </Style>
       <showInvisible>0</showInvisible>
       <showUnprintable>1</showUnprintable>
@@ -69763,8 +69765,8 @@
           </VBox>
         <TBox>
           <height>1</height>
-          <topGap>-1.5</topGap>
-          <bottomGap>9.5</bottomGap>
+          <topGap>-1.49981</topGap>
+          <bottomGap>9.49881</bottomGap>
           <linked>
             <location>
               <staves>-2</staves>
@@ -75084,7 +75086,7 @@
           </Measure>
         <TBox>
           <height>1</height>
-          <bottomGap>10.5</bottomGap>
+          <bottomGap>10.4987</bottomGap>
           <topMargin>7</topMargin>
           <linked>
             <location>
@@ -75474,7 +75476,7 @@
                 </location>
               </linked>
             <style>Repeat Text Right</style>
-            <offset x="0" y="-4.5"/>
+            <offset x="0" y="-4.49943"/>
             <text>Fine</text>
             <label>fine</label>
             </Marker>
@@ -76515,7 +76517,7 @@
                 <visible>0</visible>
                 <Segment>
                   <subtype>0</subtype>
-                  <offset x="0" y="2"/>
+                  <offset x="0" y="1.99975"/>
                   <off2 x="0" y="0"/>
                   <visible>0</visible>
                   </Segment>
@@ -78172,8 +78174,8 @@
         <hairpinLinePosBelow x="0" y="2.5"/>
         <hairpinHeight>1.3</hairpinHeight>
         <createMultiMeasureRests>1</createMultiMeasureRests>
-        <evenHeaderC>$:composerAbbr: – $:workNumber:</evenHeaderC>
-        <oddHeaderC>$:composerAbbr: – $:workNumber:</oddHeaderC>
+        <evenHeaderC>$:composerAbbr: – $:workNumber: - $I</evenHeaderC>
+        <oddHeaderC>$:composerAbbr: – $:workNumber: - $I</oddHeaderC>
         <tupletMaxSlope>0</tupletMaxSlope>
         <titleFontSize>20</titleFontSize>
         <subTitleFontSize>14</subTitleFontSize>
@@ -78189,7 +78191,7 @@
         <user2FontSize>16</user2FontSize>
         <user2FontSpatiumDependent>0</user2FontSpatiumDependent>
         <user2Align>center,top</user2Align>
-        <Spatium>1.7</Spatium>
+        <Spatium>1.75</Spatium>
         </Style>
       <showInvisible>0</showInvisible>
       <showUnprintable>1</showUnprintable>
@@ -78319,8 +78321,8 @@
           </VBox>
         <TBox>
           <height>1</height>
-          <topGap>-2.05856</topGap>
-          <bottomGap>9.77817</bottomGap>
+          <topGap>-1.99974</topGap>
+          <bottomGap>9.49879</bottomGap>
           <linked>
             <location>
               <staves>-3</staves>
@@ -84022,7 +84024,7 @@
                 <visible>0</visible>
                 <Segment>
                   <subtype>0</subtype>
-                  <offset x="0" y="2"/>
+                  <offset x="0" y="1.94286"/>
                   <off2 x="0" y="0"/>
                   <visible>0</visible>
                   </Segment>
@@ -84116,7 +84118,7 @@
                 <visible>0</visible>
                 <Segment>
                   <subtype>0</subtype>
-                  <offset x="0" y="2"/>
+                  <offset x="0" y="1.94286"/>
                   <off2 x="0" y="0"/>
                   <visible>0</visible>
                   </Segment>
@@ -84509,7 +84511,7 @@
           </Measure>
         <TBox>
           <height>1</height>
-          <bottomGap>10.5</bottomGap>
+          <bottomGap>10.2</bottomGap>
           <topMargin>7</topMargin>
           <linked>
             <location>
@@ -84899,7 +84901,7 @@
                 </location>
               </linked>
             <style>Repeat Text Right</style>
-            <offset x="0" y="-5"/>
+            <offset x="0" y="-4.85714"/>
             <text>Fine</text>
             <label>fine</label>
             </Marker>
@@ -85722,7 +85724,7 @@
                 <visible>0</visible>
                 <Segment>
                   <subtype>0</subtype>
-                  <offset x="0" y="2"/>
+                  <offset x="0" y="1.94286"/>
                   <off2 x="0" y="0"/>
                   <visible>0</visible>
                   </Segment>

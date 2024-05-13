@@ -20,8 +20,8 @@
   born: 1806
   died: 1826
   desc: Spanish composer
-  sets: 1
-  scores: 4
+  sets: 2
+  scores: 8
   link: https://musescore.com/openscore-string-quartets/sets?order=title&text=Arriaga,+Juan
   wikidata: Q313669
   wikipedia: https://en.wikipedia.org/wiki/Juan_Crisóstomo_Arriaga
@@ -41,6 +41,20 @@
   wikipedia: https://en.wikipedia.org/wiki/Béla_Bartók
   imslp: https://imslp.org/wiki/Category:Bartók,_Béla
   image: https://upload.wikimedia.org/wikipedia/commons/6/66/Bartók_Béla_1927.jpg
+235699:
+  path: Beach,_Amy
+  name: Amy Beach
+  gender: Female
+  born: 1867
+  died: 1944
+  desc: American composer and pianist
+  sets: 1
+  scores: 3
+  link: https://musescore.com/openscore-string-quartets/sets?order=title&text=Beach,+Amy
+  wikidata: Q235699
+  wikipedia: https://en.wikipedia.org/wiki/Amy_Beach
+  imslp: https://imslp.org/wiki/Category:Beach,_Amy_Marcy
+  image: https://upload.wikimedia.org/wikipedia/commons/9/91/Amy_March_(Cheney)_Beach,_1867-1944,_head_and_shoulders,_facing_slightly_left_LCCN2006690272.jpg
 255:
   path: Beethoven,_Ludwig_van
   name: Ludwig van Beethoven
@@ -48,8 +62,8 @@
   born: 1770
   died: 1827
   desc: German composer
-  sets: 8
-  scores: 30
+  sets: 10
+  scores: 40
   link: https://musescore.com/openscore-string-quartets/sets?order=title&text=Beethoven,+Ludwig
   wikidata: Q255
   wikipedia: https://en.wikipedia.org/wiki/Ludwig_van_Beethoven
@@ -89,14 +103,14 @@
   gender: Male
   born: 1833
   died: 1897
-  desc: German composer, pianist and conductor
+  desc: German composer
   sets: 3
   scores: 12
   link: https://musescore.com/openscore-string-quartets/sets?order=title&text=Brahms,+Johannes
   wikidata: Q7294
   wikipedia: https://en.wikipedia.org/wiki/Johannes_Brahms
   imslp: https://imslp.org/wiki/Category:Brahms,_Johannes
-  image: https://upload.wikimedia.org/wikipedia/commons/8/86/Johannes_Brahms_by_Luckhardt_c1885.png
+  image: https://upload.wikimedia.org/wikipedia/commons/1/15/JohannesBrahms.jpg
 366636:
   path: Bridge,_Frank
   name: Frank Bridge
@@ -110,7 +124,7 @@
   wikidata: Q366636
   wikipedia: https://en.wikipedia.org/wiki/Frank_Bridge
   imslp: https://imslp.org/wiki/Category:Bridge,_Frank
-  image:
+  image: https://upload.wikimedia.org/wikipedia/commons/d/d0/Frank_Bridge-Edwin_Marcus.png
 219551:
   path: Busoni,_Ferruccio
   name: Ferruccio Busoni
@@ -159,7 +173,7 @@
   gender: Male
   born: 1862
   died: 1918
-  desc: French composer
+  desc: French classical composer
   sets: 1
   scores: 4
   link: https://musescore.com/openscore-string-quartets/sets?order=title&text=Debussy,+Claude
@@ -222,7 +236,7 @@
   wikidata: Q104919
   wikipedia: https://en.wikipedia.org/wiki/Gabriel_Fauré
   imslp: https://imslp.org/wiki/Category:Fauré,_Gabriel
-  image: https://upload.wikimedia.org/wikipedia/commons/9/91/FauréPirou1905.jpg
+  image: https://upload.wikimedia.org/wikipedia/commons/d/de/Gabriel_Faure.jpg
 25872:
   path: Glazunov,_Alexander
   name: Alexander Glazunov
@@ -237,6 +251,20 @@
   wikipedia: https://en.wikipedia.org/wiki/Alexander_Glazunov
   imslp: https://imslp.org/wiki/Category:Glazunov,_Aleksandr
   image: https://upload.wikimedia.org/wikipedia/commons/3/3c/AlexanderGlazounov.jpg
+181885:
+  path: Glinka,_Mikhail
+  name: Mikhail Glinka
+  gender: Male
+  born: 1804
+  died: 1857
+  desc: Russian composer
+  sets: 1
+  scores: 4
+  link: https://musescore.com/openscore-string-quartets/sets?order=title&text=Glinka,+Mikhail
+  wikidata: Q181885
+  wikipedia: https://en.wikipedia.org/wiki/Mikhail_Glinka
+  imslp: https://imslp.org/wiki/Category:Glinka,_Mikhail
+  image: https://upload.wikimedia.org/wikipedia/commons/e/e8/Glinka_1856.jpg
 180278:
   path: Gounod,_Charles
   name: Charles Gounod
@@ -251,6 +279,20 @@
   wikipedia: https://en.wikipedia.org/wiki/Charles_Gounod
   imslp: https://imslp.org/wiki/Category:Gounod,_Charles
   image: https://upload.wikimedia.org/wikipedia/commons/e/e4/Charles_Gounod_(1890)_by_Nadar.jpg
+699322:
+  path: Gouvy,_Théodore
+  name: Théodore Gouvy
+  gender: Male
+  born: 1819
+  died: 1898
+  desc: French composer
+  sets: 1
+  scores: 4
+  link: https://musescore.com/openscore-string-quartets/sets?order=title&text=Gouvy,+Théodore
+  wikidata: Q699322
+  wikipedia: https://en.wikipedia.org/wiki/Théodore_Gouvy
+  imslp: https://imslp.org/wiki/Category:Gouvy,_Louis_Théodore
+  image: https://upload.wikimedia.org/wikipedia/commons/5/52/Theodore_Gouvy.JPG
 80621:
   path: Grieg,_Edvard
   name: Edvard Grieg
@@ -272,8 +314,8 @@
   born: 1732
   died: 1809
   desc: Austrian composer
-  sets: 26
-  scores: 108
+  sets: 28
+  scores: 116
   link: https://musescore.com/openscore-string-quartets/sets?order=title&text=Haydn,+Joseph
   wikidata: Q7349
   wikipedia: https://en.wikipedia.org/wiki/Joseph_Haydn
@@ -293,6 +335,20 @@
   wikipedia: https://en.wikipedia.org/wiki/Fanny_Mendelssohn
   imslp: https://imslp.org/wiki/Category:Hensel,_Fanny
   image: https://upload.wikimedia.org/wikipedia/commons/0/0b/Fannymendelssohn-improved.jpg
+706138:
+  path: Hoffmeister,_Franz_Anton
+  name: Franz Anton Hoffmeister
+  gender: Male
+  born: 1754
+  died: 1812
+  desc: German composer
+  sets: 1
+  scores: 2
+  link: https://musescore.com/openscore-string-quartets/sets?order=title&text=Hoffmeister,+Franz
+  wikidata: Q706138
+  wikipedia: https://en.wikipedia.org/wiki/Franz_Anton_Hoffmeister
+  imslp: https://imslp.org/wiki/Category:Hoffmeister,_Franz_Anton
+  image: https://upload.wikimedia.org/wikipedia/commons/7/79/Franz_anton_hoffmeister.jpg
 313584:
   path: Indy,_Vincent_d’
   name: Vincent d’Indy
@@ -412,13 +468,13 @@
   born: 1756
   died: 1791
   desc: Austrian composer of the Classical period
-  sets: 7
-  scores: 27
+  sets: 12
+  scores: 46
   link: https://musescore.com/openscore-string-quartets/sets?order=title&text=Mozart,+Wolfgang
   wikidata: Q254
   wikipedia: https://en.wikipedia.org/wiki/Wolfgang_Amadeus_Mozart
   imslp: https://imslp.org/wiki/Category:Mozart,_Wolfgang_Amadeus
-  image: https://upload.wikimedia.org/wikipedia/commons/e/e4/Retrato_de_Mozart,_por_Johann_Nepomuk_della_Croce_(detalle).jpg
+  image: https://upload.wikimedia.org/wikipedia/commons/c/cc/Mozart_Portrait_Croce.jpg
 534512:
   path: Müller-Hermann,_Johanna
   name: Johanna Müller-Hermann
@@ -433,6 +489,20 @@
   wikipedia: https://en.wikipedia.org/wiki/Johanna_Müller-Hermann
   imslp:
   image: https://upload.wikimedia.org/wikipedia/commons/2/2b/Johanna_Müller-Hermann.jpg
+205139:
+  path: Nielsen,_Carl
+  name: Carl Nielsen
+  gender: Male
+  born: 1865
+  died: 1931
+  desc: Danish composer
+  sets: 1
+  scores: 4
+  link: https://musescore.com/openscore-string-quartets/sets?order=title&text=Nielsen,+Carl
+  wikidata: Q205139
+  wikipedia: https://en.wikipedia.org/wiki/Carl_Nielsen
+  imslp: https://imslp.org/wiki/Category:Nielsen,_Carl
+  image: https://upload.wikimedia.org/wikipedia/commons/5/5d/Carl_Nielsen_c._1908_-_Restoration.jpg
 1178:
   path: Ravel,_Maurice
   name: Maurice Ravel
@@ -509,7 +579,7 @@
   gender: Male
   born: 1810
   died: 1856
-  desc: German composer
+  desc: German composer, pianist and critic
   sets: 2
   scores: 8
   link: https://musescore.com/openscore-string-quartets/sets?order=title&text=Schumann,+Robert
@@ -545,6 +615,20 @@
   wikipedia: https://en.wikipedia.org/wiki/Ethel_Smyth
   imslp: https://imslp.org/wiki/Category:Smyth,_Ethel
   image: https://upload.wikimedia.org/wikipedia/commons/6/68/Ethel_Smyth.jpg
+368264:
+  path: Stanford,_Charles_Villiers
+  name: Charles Villiers Stanford
+  gender: Male
+  born: 1852
+  died: 1924
+  desc: Irish composer, music teacher, and conductor
+  sets: 1
+  scores: 4
+  link: https://musescore.com/openscore-string-quartets/sets?order=title&text=Stanford,+Charles
+  wikidata: Q368264
+  wikipedia: https://en.wikipedia.org/wiki/Charles_Villiers_Stanford
+  imslp: https://imslp.org/wiki/Category:Stanford,_Charles_Villiers
+  image: https://upload.wikimedia.org/wikipedia/commons/c/cf/Charles_Villiers_Stanford_c1894bw.jpg
 13894:
   path: Strauss,_Richard
   name: Richard Strauss

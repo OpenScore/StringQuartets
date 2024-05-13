@@ -6,6 +6,13 @@
   link: https://musescore.com/openscore-string-quartets/sets/5108429
   imslp: '#415720'
   composer_id: 451495
+5116346:
+  path: Arriaga,_Juan_Crisóstomo_de/String_Quartet_No.1_in_D_minor
+  name: String Quartet No.1 in D minor
+  movements: 4
+  link: https://musescore.com/openscore-string-quartets/sets/5116346
+  imslp: '#33857'
+  composer_id: 313669
 5116350:
   path: Arriaga,_Juan_Crisóstomo_de/String_Quartet_No.3_in_E-flat_Major
   name: String Quartet No.3 in E-flat Major
@@ -27,6 +34,13 @@
   link: https://musescore.com/openscore-string-quartets/sets/5530433
   imslp: '#18943'
   composer_id: 83326
+6406540:
+  path: Beach,_Amy/String_Quartet,_Op._89
+  name: String Quartet, Op. 89
+  movements: 3
+  link: https://musescore.com/openscore-string-quartets/sets/6406540
+  imslp: '#843310'
+  composer_id: 235699
 5108656:
   path: Beethoven,_Ludwig_van/Grosse_Fuge_in_B-flat_major,_Op.133
   name: Grosse Fuge in B-flat major, Op.133
@@ -40,6 +54,20 @@
   movements: 4
   link: https://musescore.com/openscore-string-quartets/sets/5108454
   imslp: '#04755'
+  composer_id: 255
+5108657:
+  path: Beethoven,_Ludwig_van/String_Quartet_No.12,_Op.127
+  name: String Quartet No.12, Op.127
+  movements: 4
+  link: https://musescore.com/openscore-string-quartets/sets/5108657
+  imslp: '#04766'
+  composer_id: 255
+5108658:
+  path: Beethoven,_Ludwig_van/String_Quartet_No.13_in_B♭_major,_Op.130
+  name: String Quartet No.13 in B♭ major, Op.130
+  movements: 6
+  link: https://musescore.com/openscore-string-quartets/sets/5108658
+  imslp: '#04767'
   composer_id: 255
 5108476:
   path: Beethoven,_Ludwig_van/String_Quartet_No.2,_Op.18_No.2
@@ -209,6 +237,13 @@
   link: https://musescore.com/openscore-string-quartets/sets/5108543
   imslp: '#65357'
   composer_id: 25872
+5108728:
+  path: Glinka,_Mikhail/String_Quartet
+  name: String Quartet
+  movements: 4
+  link: https://musescore.com/openscore-string-quartets/sets/5108728
+  imslp: '#40373'
+  composer_id: 181885
 5108686:
   path: Gounod,_Charles/String_Quartet_No.3_in_A_minor
   name: String Quartet No.3 in A minor
@@ -216,6 +251,13 @@
   link: https://musescore.com/openscore-string-quartets/sets/5108686
   imslp:
   composer_id: 180278
+5108687:
+  path: Gouvy,_Théodore/String_Quartet,_Op.16_No.1
+  name: String Quartet, Op.16 No.1
+  movements: 4
+  link: https://musescore.com/openscore-string-quartets/sets/5108687
+  imslp: '#16842'
+  composer_id: 699322
 5108691:
   path: Grieg,_Edvard/String_Quartet_No.1,_Op.27
   name: String Quartet No.1, Op.27
@@ -328,6 +370,13 @@
   link: https://musescore.com/openscore-string-quartets/sets/5769912
   imslp: '#106805'
   composer_id: 7349
+6403711:
+  path: Haydn,_Joseph/String_Quartet_in_D_minor,_Hob.III76,_Op.76_No.2
+  name: String Quartet in D minor, Hob.III:76, Op.76 No.2
+  movements: 4
+  link: https://musescore.com/openscore-string-quartets/sets/6403711
+  imslp: '#28078'
+  composer_id: 7349
 5446206:
   path: Haydn,_Joseph/String_Quartet_in_E-flat_major,_Hob.III2,_Op.1_No.2
   name: String Quartet in E-flat major, Hob.III:2, Op.1 No.2
@@ -391,6 +440,13 @@
   link: https://musescore.com/openscore-string-quartets/sets/5108564
   imslp: '#06556'
   composer_id: 7349
+6403696:
+  path: Haydn,_Joseph/String_Quartet_in_G_major,_Hob.III75,_Op.76_No.1
+  name: String Quartet in G major, Hob.III:75, Op.76 No.1
+  movements: 4
+  link: https://musescore.com/openscore-string-quartets/sets/6403696
+  imslp: '#28077'
+  composer_id: 7349
 5178638:
   path: Haydn,_Joseph/String_Quartet_in_G_minor,_Hob.III33,_Op.20_No.3
   name: String Quartet in G minor, Hob.III:33, Op.20 No.3
@@ -412,6 +468,13 @@
   link: https://musescore.com/user/37221589/sets/5150345
   imslp: '#746532'
   composer_id: 57286
+5108735:
+  path: Hoffmeister,_Franz_Anton/String_Quartet_No.9_in_D_major
+  name: String Quartet No.9 in D major
+  movements: 2
+  link: https://musescore.com/openscore-string-quartets/sets/5108735
+  imslp:
+  composer_id: 706138
 5108582:
   path: Indy,_Vincent_d’/String_Quartet_No.1,_Op.35
   name: String Quartet No.1, Op.35
@@ -517,6 +580,13 @@
   link: https://musescore.com/openscore-string-quartets/sets/5108846
   imslp: '#555797'
   composer_id: 1356404
+6406660:
+  path: Mozart,_Wolfgang_Amadeus/String_Quartet_No.1_in_G_major,_K.8073f
+  name: String Quartet No.1 in G major, K.80/73f
+  movements: 4
+  link: https://musescore.com/openscore-string-quartets/sets/6406660
+  imslp: '#64041'
+  composer_id: 254
 5108511:
   path: Mozart,_Wolfgang_Amadeus/String_Quartet_No.14_in_G_major,_K.387_(Op._10,_No._1)
   name: String Quartet No.14 in G major, K.387 (Op. 10, No. 1)
@@ -559,6 +629,34 @@
   link: https://musescore.com/openscore-string-quartets/sets/5108516
   imslp: '#64142'
   composer_id: 254
+6406690:
+  path: Mozart,_Wolfgang_Amadeus/String_Quartet_No.2_in_D_major,_K.155134a
+  name: String Quartet No.2 in D major, K.155/134a
+  movements: 3
+  link: https://musescore.com/openscore-string-quartets/sets/6406690
+  imslp: '#64042'
+  composer_id: 254
+6406813:
+  path: Mozart,_Wolfgang_Amadeus/String_Quartet_No.21_in_D_major,_K.575
+  name: String Quartet No.21 in D major, K.575
+  movements: 4
+  link: https://musescore.com/openscore-string-quartets/sets/6406813
+  imslp: '#64145'
+  composer_id: 254
+6406831:
+  path: Mozart,_Wolfgang_Amadeus/String_Quartet_No.22_in_B-flat_major,_K.589
+  name: String Quartet No.22 in B-flat major, K.589
+  movements: 4
+  link: https://musescore.com/openscore-string-quartets/sets/6406831
+  imslp: '#64148'
+  composer_id: 254
+6406837:
+  path: Mozart,_Wolfgang_Amadeus/String_Quartet_No.23_in_F_major,_K.590
+  name: String Quartet No.23 in F major, K.590
+  movements: 4
+  link: https://musescore.com/openscore-string-quartets/sets/6406837
+  imslp: '#64149'
+  composer_id: 254
 5790447:
   path: Mozart,_Wolfgang_Amadeus/String_Quartet_No.4_in_C_major,_K.157
   name: String Quartet No.4 in C major, K.157
@@ -573,6 +671,13 @@
   link: https://musescore.com/openscore-string-quartets/sets/5108505
   imslp: '#557707'
   composer_id: 534512
+5108849:
+  path: Nielsen,_Carl/String_Quartet_No.1,_Op.13
+  name: String Quartet No.1, Op.13
+  movements: 4
+  link: https://musescore.com/openscore-string-quartets/sets/5108849
+  imslp: '#173684'
+  composer_id: 205139
 5108574:
   path: Ravel,_Maurice/String_Quartet_in_F_major
   name: String Quartet in F major
@@ -678,6 +783,13 @@
   link: https://musescore.com/openscore-string-quartets/sets/5108481
   imslp: '#346160'
   composer_id: 236599
+5108861:
+  path: Stanford,_Charles_Villiers/String_Quartet_No.1,_Op.44
+  name: String Quartet No.1, Op.44
+  movements: 4
+  link: https://musescore.com/openscore-string-quartets/sets/5108861
+  imslp: '#67817'
+  composer_id: 368264
 5108858:
   path: Strauss,_Richard/String_Quartet_in_A_major,_Op.2
   name: String Quartet in A major, Op.2

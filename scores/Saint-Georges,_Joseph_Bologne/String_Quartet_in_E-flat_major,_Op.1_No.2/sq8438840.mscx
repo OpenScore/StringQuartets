@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <museScore version="3.02">
   <programVersion>3.6.2</programVersion>
-  <programRevision>a732723</programRevision>
+  <programRevision></programRevision>
   <Score>
     <LayerTag id="0" tag="default"></LayerTag>
     <currentLayer>0</currentLayer>
@@ -15,8 +15,8 @@
       <hairpinLinePosAbove x="0" y="-1.5"/>
       <hairpinLinePosBelow x="0" y="2.5"/>
       <hairpinHeight>1.3</hairpinHeight>
-      <evenHeaderC>$:composerAbbr: – $:workNumber:</evenHeaderC>
-      <oddHeaderC>$:composerAbbr: – $:workNumber:</oddHeaderC>
+      <evenHeaderC>$:composerAbbr: – $:workNumber: - $I</evenHeaderC>
+      <oddHeaderC>$:composerAbbr: – $:workNumber: - $I</oddHeaderC>
       <tupletMaxSlope>0</tupletMaxSlope>
       <titleFontSize>20</titleFontSize>
       <subTitleFontSize>14</subTitleFontSize>
