@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <museScore version="3.02">
   <programVersion>3.6.2</programVersion>
-  <programRevision>a732723</programRevision>
+  <programRevision></programRevision>
   <Score>
     <LayerTag id="0" tag="default"></LayerTag>
     <currentLayer>0</currentLayer>
@@ -21435,8 +21435,11 @@
             <durationType>half</durationType>
             <Note>
               <linkedMain/>
-              <pitch>67</pitch>
-              <tpc>15</tpc>
+              <Accidental>
+                <subtype>accidentalFlat</subtype>
+                </Accidental>
+              <pitch>66</pitch>
+              <tpc>8</tpc>
               </Note>
             <Tremolo>
               <subtype>r16</subtype>
@@ -29099,8 +29102,8 @@
             <durationType>half</durationType>
             <Note>
               <linkedMain/>
-              <pitch>62</pitch>
-              <tpc>16</tpc>
+              <pitch>58</pitch>
+              <tpc>12</tpc>
               </Note>
             <Tremolo>
               <subtype>r16</subtype>
@@ -51388,11 +51391,8 @@
               </Articulation>
             <Note>
               <linkedMain/>
-              <Accidental>
-                <subtype>accidentalNatural</subtype>
-                </Accidental>
-              <pitch>57</pitch>
-              <tpc>17</tpc>
+              <pitch>56</pitch>
+              <tpc>10</tpc>
               </Note>
             </Chord>
           <Rest>
@@ -89558,8 +89558,11 @@
               <Note>
                 <linked>
                   </linked>
-                <pitch>67</pitch>
-                <tpc>15</tpc>
+                <Accidental>
+                  <subtype>accidentalFlat</subtype>
+                  </Accidental>
+                <pitch>66</pitch>
+                <tpc>8</tpc>
                 </Note>
               <Tremolo>
                 <subtype>r16</subtype>
@@ -98658,8 +98661,8 @@
               <Note>
                 <linked>
                   </linked>
-                <pitch>62</pitch>
-                <tpc>16</tpc>
+                <pitch>58</pitch>
+                <tpc>12</tpc>
                 </Note>
               <Tremolo>
                 <subtype>r16</subtype>
@@ -125210,11 +125213,8 @@
               <Note>
                 <linked>
                   </linked>
-                <Accidental>
-                  <subtype>accidentalNatural</subtype>
-                  </Accidental>
-                <pitch>57</pitch>
-                <tpc>17</tpc>
+                <pitch>56</pitch>
+                <tpc>10</tpc>
                 </Note>
               </Chord>
             <Rest>
