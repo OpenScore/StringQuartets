@@ -4,7 +4,7 @@
 *.mscz
 *.mxl
 *.musicxml
-*.pdf
+#*.pdf
 *.mid
 *.wav
 *.mp3
