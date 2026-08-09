@@ -77,6 +77,22 @@ def _normalize_ids(data: dict) -> dict:
     return normalized
 
 
+def split_composer_name(composer_rec: dict) -> tuple[str, str]:
+    """Return (last_name, first_name) for a composer, derived from the
+    'path' field (already in 'Last,_First...' form, e.g. 'Beethoven,_Ludwig_van'),
+    falling back to splitting 'name' on the last space if 'path' is missing."""
+    path = composer_rec.get("path", "")
+    if "," in path:
+        last, first = path.split(",", 1)
+        return last.replace("_", " ").strip(), first.replace("_", " ").strip()
+
+    full_name = composer_rec.get("name", "Unknown")
+    if " " in full_name:
+        first, last = full_name.rsplit(" ", 1)
+        return last, first
+    return full_name, ""
+
+
 def build_rows(composers: dict, sets_: dict, scores: dict) -> list[dict]:
     rows = []
     for score_id, score in scores.items():
@@ -85,7 +101,7 @@ def build_rows(composers: dict, sets_: dict, scores: dict) -> list[dict]:
         composer_id = set_rec.get("composer_id")
         composer_rec = composers.get(composer_id, {})
 
-        composer_name = composer_rec.get("name", "Unknown")
+        composer_last, composer_first = split_composer_name(composer_rec)
         set_name = set_rec.get("name", "\u2014")
         score_name = score.get("name", "\u2014")
         score_path = score.get("path", "")
@@ -99,7 +115,8 @@ def build_rows(composers: dict, sets_: dict, scores: dict) -> list[dict]:
 
         rows.append(
             {
-                "composer": composer_name,
+                "composer_last": composer_last,
+                "composer_first": composer_first,
                 "set": set_name,
                 "score": score_name,
                 "mscx_url": mscx_url,
@@ -109,12 +126,13 @@ def build_rows(composers: dict, sets_: dict, scores: dict) -> list[dict]:
             }
         )
 
-    rows.sort(key=lambda r: (r["composer"].lower(), r["set"].lower(), r["score"].lower()))
+    rows.sort(key=lambda r: (r["composer_last"].lower(), r["composer_first"].lower(), r["score"].lower()))
     return rows
 
 
 def render_row(row: dict) -> str:
-    composer = html.escape(row["composer"])
+    composer_last = html.escape(row["composer_last"])
+    composer_first = html.escape(row["composer_first"])
     score_name = html.escape(row["score"])
     mscx_url = html.escape(row["mscx_url"], quote=True)
     mxl_url = html.escape(row["mxl_url"], quote=True)
@@ -134,7 +152,8 @@ def render_row(row: dict) -> str:
 
     return (
         "<tr>"
-        f"<td>{composer}</td>"
+        f"<td>{composer_last}</td>"
+        f"<td>{composer_first}</td>"
         f"<td>{score_name}</td>"
         f"<td>{files_cell}</td>"
         f"<td>{imslp_cell}</td>"
@@ -224,7 +243,8 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <table id="catalogue">
     <thead>
       <tr>
-        <th>Composer</th>
+        <th>Last Name</th>
+        <th>First Name</th>
         <th>Score</th>
         <th>Files</th>
         <th>IMSLP</th>
@@ -240,8 +260,8 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <script>
     $(document).ready(function () {{
       $('#catalogue').DataTable({{
-        pageLength: 50,
-        lengthMenu: [25, 50, 100, 250, 500],
+        pageLength: -1,
+        lengthMenu: [[25, 50, 100, 250, 500, -1], [25, 50, 100, 250, 500, 'All']],
         order: [[0, 'asc'], [1, 'asc']]
       }});
     }});
