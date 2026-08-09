@@ -2,7 +2,7 @@
 
 # Binary and generated formats
 *.mscz
-*.mxl
+#*.mxl
 *.musicxml
 #*.pdf
 *.mid
