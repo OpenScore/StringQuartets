@@ -15,7 +15,7 @@ or the [command line interface][MuseScore Command Line].
 
 # [Scores directory](./scores/)
 
-Score and lyric files are arranged in the following directory structure:
+Score (and any associated) files are arranged in the following directory structure:
 
 ```
 <composer>/<set>/
@@ -24,11 +24,11 @@ Score and lyric files are arranged in the following directory structure:
 Directories:
 
 - `<composer>` - composer's name in the form `Last,_First_Second...`.
-- `<set>` - name of the extended work that the song belongs to, if any.
+- `<set>` - name of the extended work that the work belongs to, (if any, rarely distinct from work here).
 
 ## Filenames
 
-Score files within each song directory are named as follows
+Score files within each work directory are named as follows
 
 ```
 sq<id>.mscx
@@ -42,7 +42,7 @@ Filename components:
 
 ## Unicode characters in file paths
 
-With the exception of a few unsafe or illegal characters, names of songs,
+With the exception of a few unsafe or illegal characters, names of works,
 sets and composers have been left in their original forms.
 
 Modern filesystems should have no problems with Unicode characters in
@@ -112,3 +112,11 @@ For academic publications, please cite the report on we published in DLfM 2023:
 	pages = {49--57},
 }
 ```
+
+Note that there is also a [CITATION.cff](CITATION.cff) file here.
+
+# Contribution
+
+Contribution is welcome.
+We coordinate technical matters here on GitHub.
+PLeae get in touch to constribute as a transcriber or in other ways.
