@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/599203316.svg)](https://doi.org/10.5281/zenodo.21862554)
+
 [OpenScore String Quartets][OSSQ]
 =================================
 
