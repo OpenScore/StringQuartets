@@ -11,7 +11,10 @@ OUTPUT_FORMAT = "mxl"
 INPUT_EXTENSIONS = ("*.mscz", "*.mscx") # We use mscz/mscx and for MuseScore 3/4 respectively
 
 
-def convert_directory(input_dir: Path = DEFAULT_INPUT_DIR):
+def convert_directory(
+        input_dir: Path = DEFAULT_INPUT_DIR,
+        parts: bool = True
+):
     # Resolve path to absolute
     input_dir = input_dir.resolve()
     
@@ -34,10 +37,20 @@ def convert_directory(input_dir: Path = DEFAULT_INPUT_DIR):
     job_data = []
     for file_path in files:
         output_file = file_path.with_suffix(f".{OUTPUT_FORMAT}")
-        job_data.append({
-            "in": str(file_path),
-            "out": str(output_file)
-        })
+        if parts:
+            output_parts = str(file_path.with_suffix("")) + "-Part-"
+            job_data.append({
+                "in": str(file_path),
+                "out": [
+                    # str(output_file), # If main also
+                    [output_parts, f".{OUTPUT_FORMAT}"]
+                ]
+            })
+        else:
+            job_data.append({
+                "in": str(file_path),
+                "out": str(output_file)
+            })
 
     # Write temporary JSON job file
     json_file = input_dir / "batch_job.json"
