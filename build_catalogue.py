@@ -32,6 +32,7 @@ from pathlib import Path
 
 RAW_BASE = "https://github.com/OpenScore/StringQuartets/raw/refs/heads/main/scores"
 IMSLP_BASE = "https://imslp.org/wiki/Special:ImagefromIndex"
+PART_NAMES = ["Violin_1", "Violin_2", "Viola", "Violoncello"]
 
 
 def load_yaml(path: Path, parser: str = "pyyaml") -> dict:
@@ -113,6 +114,11 @@ def build_rows(composers: dict, sets_: dict, scores: dict) -> list[dict]:
         imslp_id = str(score.get("imslp", "")).lstrip("#").strip()
         imslp_url = f"{IMSLP_BASE}/{imslp_id}" if imslp_id else None
 
+        part_urls = {
+            part_name: f"{RAW_BASE}/{score_path}/sq{score_id}-Part-{part_name}.pdf"
+            for part_name in PART_NAMES
+        }
+
         rows.append(
             {
                 "composer_last": composer_last,
@@ -123,6 +129,7 @@ def build_rows(composers: dict, sets_: dict, scores: dict) -> list[dict]:
                 "mxl_url": mxl_url,
                 "pdf_url": pdf_url,
                 "imslp_url": imslp_url,
+                "part_urls": part_urls,
             }
         )
 
@@ -150,12 +157,18 @@ def render_row(row: dict) -> str:
     else:
         imslp_cell = ""
 
+    parts_cell = "; ".join(
+        f'<a href="{html.escape(part_url, quote=True)}" target="_blank" rel="noopener">{html.escape(part_name)}</a>'
+        for part_name, part_url in row["part_urls"].items()
+    )
+
     return (
         "<tr>"
         f"<td>{composer_last}</td>"
         f"<td>{composer_first}</td>"
         f"<td>{score_name}</td>"
         f"<td>{files_cell}</td>"
+        f"<td>{parts_cell}</td>"
         f"<td>{imslp_cell}</td>"
         "</tr>"
     )
@@ -237,16 +250,38 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <h1>OpenScore String Quartets Catalogue</h1>
   <p class="subtitle">
     {scores_count} scores across {sets_count} sets by {composers_count} composers.
-    Click any column header to sort; use the search box to filter.
+    Click any column header to sort; use the search box to filter (across any field).    
   </p>
-
+  <p>
+  Score files are provided in several formats:
+  <ol>
+      <li>MuseScore, for use in MuseScore studio, (without layout done by us manually),</li>
+      <li>MusicXML, which is usable in almost any score reader, (but layout may be broken),</li>
+      <li>PDF images (converted directly from the MuseScore, so layout should be correct).</li>
+  </ol>
+  </p>
+  <p>
+  Parts are provided in PDF only.
+  These PDFs are made directly from the MuseScore;
+  layout should be correct but there be occasional issues
+  (please report any you come across).
+  </p>
+  <p>
+  We hope you enjoy this resource!
+  </p>
+  <p>
+  <a href="https://markgotham.github.io/" target="_blank" rel="noopener">Mark Gotham</a>,
+  on behalf of the OSQ team.
+  </p>
+  
   <table id="catalogue">
     <thead>
       <tr>
         <th>Last Name</th>
         <th>First Name</th>
         <th>Score</th>
-        <th>Files</th>
+        <th>Score Files</th>
+        <th>Part Files</th>
         <th>IMSLP</th>
       </tr>
     </thead>
