@@ -31,7 +31,7 @@ import html
 from pathlib import Path
 
 RAW_BASE = "https://github.com/OpenScore/StringQuartets/raw/refs/heads/main/scores"
-IMSLP_BASE = "https://imslp.org/wiki/Special:ImagefromIndex"
+IMSLP_BASE = "https://imslp.org/wiki/Special:ReverseLookup"
 PART_NAMES = ["Violin_1", "Violin_2", "Viola", "Violoncello"]
 
 
