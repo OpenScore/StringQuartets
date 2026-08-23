@@ -22,16 +22,22 @@ all IDs are set to strings after parsing so the rest
 of the script behaves identically regardless of which one is used.
 
 For each score we build download links for the .mscx, .mxl, and .pdf files,
-using the pattern:
+plus a link that opens the .mxl file in the OurTextScores web editor. Download
+links use the pattern:
     https://github.com/OpenScore/StringQuartets/raw/refs/heads/main/scores/<score path>/sq<score id>.<format>
 """
 
 import argparse
 import html
 from pathlib import Path
+from urllib.parse import urlencode
 
 RAW_BASE = "https://github.com/OpenScore/StringQuartets/raw/refs/heads/main/scores"
+RAW_CONTENT_BASE = (
+    "https://raw.githubusercontent.com/OpenScore/StringQuartets/refs/heads/main/scores"
+)
 IMSLP_BASE = "https://imslp.org/wiki/Special:ReverseLookup"
+SCORE_EDITOR_BASE = "https://www.ourtextscores.com/score-editor/index.html"
 PART_NAMES = ["Violin_1", "Violin_2", "Viola", "Violoncello"]
 
 
@@ -110,6 +116,8 @@ def build_rows(composers: dict, sets_: dict, scores: dict) -> list[dict]:
         mscx_url = f"{RAW_BASE}/{score_path}/sq{score_id}.mscx"
         mxl_url = f"{RAW_BASE}/{score_path}/sq{score_id}.mxl"
         pdf_url = f"{RAW_BASE}/{score_path}/sq{score_id}.pdf"
+        editor_score_url = f"{RAW_CONTENT_BASE}/{score_path}/sq{score_id}.mxl"
+        editor_url = f"{SCORE_EDITOR_BASE}?{urlencode({'score': editor_score_url})}"
 
         imslp_id = str(score.get("imslp", "")).lstrip("#").strip()
         imslp_url = f"{IMSLP_BASE}/{imslp_id}" if imslp_id else None
@@ -128,6 +136,7 @@ def build_rows(composers: dict, sets_: dict, scores: dict) -> list[dict]:
                 "mscx_url": mscx_url,
                 "mxl_url": mxl_url,
                 "pdf_url": pdf_url,
+                "editor_url": editor_url,
                 "imslp_url": imslp_url,
                 "part_urls": part_urls,
             }
@@ -144,6 +153,7 @@ def render_row(row: dict) -> str:
     mscx_url = html.escape(row["mscx_url"], quote=True)
     mxl_url = html.escape(row["mxl_url"], quote=True)
     pdf_url = html.escape(row["pdf_url"], quote=True)
+    editor_url = html.escape(row["editor_url"], quote=True)
 
     files_cell = (
         f'<a href="{mscx_url}" target="_blank" rel="noopener">MuseScore</a>; '
@@ -170,6 +180,7 @@ def render_row(row: dict) -> str:
         f"<td>{files_cell}</td>"
         f"<td>{parts_cell}</td>"
         f"<td>{imslp_cell}</td>"
+        f'<td><a href="{editor_url}" target="_blank" rel="noopener">Open in Web Editor</a></td>'
         "</tr>"
     )
 
@@ -283,6 +294,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
         <th>Score Files</th>
         <th>Part Files</th>
         <th>IMSLP</th>
+        <th>OTS Web Editor</th>
       </tr>
     </thead>
     <tbody>
