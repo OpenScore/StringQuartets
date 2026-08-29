@@ -114,6 +114,9 @@ def build_rows(composers: dict, sets_: dict, scores: dict) -> list[dict]:
         imslp_id = str(score.get("imslp", "")).lstrip("#").strip()
         imslp_url = f"{IMSLP_BASE}/{imslp_id}" if imslp_id else None
 
+        # see sets.yaml "recording"
+        recording_url = str(set_rec.get("recording", "") or "").strip() or None
+
         part_urls = {
             part_name: f"{RAW_BASE}/{score_path}/sq{score_id}-Part-{part_name}.pdf"
             for part_name in PART_NAMES
@@ -129,6 +132,7 @@ def build_rows(composers: dict, sets_: dict, scores: dict) -> list[dict]:
                 "mxl_url": mxl_url,
                 "pdf_url": pdf_url,
                 "imslp_url": imslp_url,
+                "recording_url": recording_url,
                 "part_urls": part_urls,
             }
         )
@@ -157,6 +161,12 @@ def render_row(row: dict) -> str:
     else:
         imslp_cell = ""
 
+    if row["recording_url"]:
+        recording_url = html.escape(row["recording_url"], quote=True)
+        recording_cell = f'<a href="{recording_url}" target="_blank" rel="noopener">Recording</a>'
+    else:
+        recording_cell = ""
+
     parts_cell = "; ".join(
         f'<a href="{html.escape(part_url, quote=True)}" target="_blank" rel="noopener">{html.escape(part_name)}</a>'
         for part_name, part_url in row["part_urls"].items()
@@ -170,6 +180,7 @@ def render_row(row: dict) -> str:
         f"<td>{files_cell}</td>"
         f"<td>{parts_cell}</td>"
         f"<td>{imslp_cell}</td>"
+        f"<td>{recording_cell}</td>"
         "</tr>"
     )
 
@@ -283,6 +294,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
         <th>Score Files</th>
         <th>Part Files</th>
         <th>IMSLP</th>
+        <th>Recording</th>
       </tr>
     </thead>
     <tbody>
