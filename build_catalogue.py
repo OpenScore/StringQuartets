@@ -21,10 +21,14 @@ Either works fine here,
 all IDs are set to strings after parsing so the rest
 of the script behaves identically regardless of which one is used.
 
-For each score we build download links for the .mscx, .mxl, and .pdf files,
-plus a link that opens the .mxl file in the OurTextScores web editor. Download
-links use the pattern:
-    https://github.com/OpenScore/StringQuartets/raw/refs/heads/main/scores/<score path>/sq<score id>.<format>
+For each score we build
+1. download links in several file formats, and for both score and parts. 
+2. external links to
+    - IMSLP's PDFs (own column)
+    - two score viewers:
+        - MuseScore.com (MuseScore file, view and play online, paywall to download)
+        - OurTextScores (.mxl web editor).
+    - YouTube recordings
 """
 
 import argparse
@@ -32,12 +36,11 @@ import html
 from pathlib import Path
 from urllib.parse import urlencode
 
-RAW_BASE = "https://github.com/OpenScore/StringQuartets/raw/refs/heads/main/scores"
-RAW_CONTENT_BASE = (
-    "https://raw.githubusercontent.com/OpenScore/StringQuartets/refs/heads/main/scores"
-)
+RAW_BASE = "https://raw.githubusercontent.com/OpenScore/StringQuartets/refs/heads/main/scores"
 IMSLP_BASE = "https://imslp.org/wiki/Special:ReverseLookup"
-SCORE_EDITOR_BASE = "https://www.ourtextscores.com/score-editor/index.html"
+ourtext_BASE = "https://www.ourtextscores.com/score-editor/index.html"
+# Note: MUSESCORE_BASE not needed, already in metadata
+YOUTUBE_BASE = ""
 PART_NAMES = ["Violin_1", "Violin_2", "Viola", "Violoncello"]
 
 
@@ -116,14 +119,13 @@ def build_rows(composers: dict, sets_: dict, scores: dict) -> list[dict]:
         mscx_url = f"{RAW_BASE}/{score_path}/sq{score_id}.mscx"
         mxl_url = f"{RAW_BASE}/{score_path}/sq{score_id}.mxl"
         pdf_url = f"{RAW_BASE}/{score_path}/sq{score_id}.pdf"
-        editor_score_url = f"{RAW_CONTENT_BASE}/{score_path}/sq{score_id}.mxl"
-        editor_url = f"{SCORE_EDITOR_BASE}?{urlencode({'score': editor_score_url})}"
 
+        # External:
+        ourtext_url = f"{ourtext_BASE}?{urlencode({'score': mxl_url})}"
         imslp_id = str(score.get("imslp", "")).lstrip("#").strip()
         imslp_url = f"{IMSLP_BASE}/{imslp_id}" if imslp_id else None
-
-        # see sets.yaml "recording"
         recording_url = str(set_rec.get("recording", "") or "").strip() or None
+        musescore_url = score.get("link")
 
         part_urls = {
             part_name: f"{RAW_BASE}/{score_path}/sq{score_id}-Part-{part_name}.pdf"
@@ -139,8 +141,9 @@ def build_rows(composers: dict, sets_: dict, scores: dict) -> list[dict]:
                 "mscx_url": mscx_url,
                 "mxl_url": mxl_url,
                 "pdf_url": pdf_url,
-                "editor_url": editor_url,
+                "ourtext_url": ourtext_url,
                 "imslp_url": imslp_url,
+                "musescore_url": musescore_url,
                 "recording_url": recording_url,
                 "part_urls": part_urls,
             }
@@ -157,7 +160,6 @@ def render_row(row: dict) -> str:
     mscx_url = html.escape(row["mscx_url"], quote=True)
     mxl_url = html.escape(row["mxl_url"], quote=True)
     pdf_url = html.escape(row["pdf_url"], quote=True)
-    editor_url = html.escape(row["editor_url"], quote=True)
 
     files_cell = (
         f'<a href="{mscx_url}" target="_blank" rel="noopener">MuseScore</a>; '
@@ -165,17 +167,18 @@ def render_row(row: dict) -> str:
         f'<a href="{pdf_url}" target="_blank" rel="noopener">PDF</a>'
     )
 
-    if row["imslp_url"]:
-        imslp_url = html.escape(row["imslp_url"], quote=True)
-        imslp_cell = f'<a href="{imslp_url}" target="_blank" rel="noopener">IMSLP</a>'
-    else:
-        imslp_cell = ""
-
-    if row["recording_url"]:
-        recording_url = html.escape(row["recording_url"], quote=True)
-        recording_cell = f'<a href="{recording_url}" target="_blank" rel="noopener">Recording</a>'
-    else:
-        recording_cell = ""
+    ext_links = []
+    for key, label in [
+        ("imslp_url", "IMSLP"),
+        ("musescore_url", "MuseScore.com"),
+        ("ourtext_url", "OurText.com"),
+        ("recording_url", "Recording"),
+    ]:
+        url = row.get(key)
+        if url and url.startswith(("http://", "https://")):
+            safe = html.escape(url, quote=True)
+            ext_links.append(f'<a href="{safe}" target="_blank" rel="noopener">{label}</a>')
+    external_cell = "; ".join(ext_links)
 
     parts_cell = "; ".join(
         f'<a href="{html.escape(part_url, quote=True)}" target="_blank" rel="noopener">{html.escape(part_name)}</a>'
@@ -189,9 +192,7 @@ def render_row(row: dict) -> str:
         f"<td>{score_name}</td>"
         f"<td>{files_cell}</td>"
         f"<td>{parts_cell}</td>"
-        f"<td>{imslp_cell}</td>"
-        f'<td><a href="{editor_url}" target="_blank" rel="noopener">Open in Web Editor</a></td>'
-        f"<td>{recording_cell}</td>"
+        f'<td>{external_cell}</td>'
         "</tr>"
     )
 
@@ -277,8 +278,8 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <p>
   Score files are provided in several formats:
   <ol>
-      <li>MuseScore, for use in MuseScore studio, (without layout done by us manually),</li>
-      <li>MusicXML, which is usable in almost any score reader, (but layout may be broken),</li>
+      <li>MuseScore, for use in MuseScore studio, (layout set out by us, manually),</li>
+      <li>MusicXML, which is usable in almost any score reader, (layout may be broken),</li>
       <li>PDF images (converted directly from the MuseScore, so layout should be correct).</li>
   </ol>
   </p>
@@ -304,9 +305,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
         <th>Score</th>
         <th>Score Files</th>
         <th>Part Files</th>
-        <th>IMSLP</th>
-        <th>OTS Web Editor</th>
-        <th>Recording</th>
+        <th>External</th>
       </tr>
     </thead>
     <tbody>
