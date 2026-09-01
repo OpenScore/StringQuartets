@@ -5,6 +5,10 @@ __By [Ludwig van Beethoven][composer]__
 [set]: https://musescore.com/openscore-string-quartets/sets/5193359
 [composer]: https://musescore.com/openscore-string-quartets/sets?order=title&text=Beethoven,+Ludwig
 
+__Recording:__ [BEETHOVEN String Quartet No. 9 in C major (Op. 59, No. 3) 'Razumovsky' Score][recording]
+
+[recording]: https://www.youtube.com/watch?v=QcBLuHn2sjw
+
 Transcribed and maintained by contributors to [OpenScore String Quartets].
 
 [OpenScore String Quartets]: https://musescore.com/openscore-string-quartets

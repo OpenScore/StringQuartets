@@ -5,6 +5,10 @@ __By [Frank Bridge][composer]__
 [set]: https://musescore.com/openscore-string-quartets/sets/5108724
 [composer]: https://musescore.com/openscore-string-quartets/sets?order=title&text=Bridge,+Frank
 
+__Recording:__ [Frank Bridge: Quartet #1 in E minor (1906)][recording]
+
+[recording]: https://www.youtube.com/watch?v=bASFws7_KHo
+
 Transcribed and maintained by contributors to [OpenScore String Quartets].
 
 [OpenScore String Quartets]: https://musescore.com/openscore-string-quartets
