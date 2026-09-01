@@ -272,7 +272,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <body>
   <h1>OpenScore String Quartets Catalogue</h1>
   <p class="subtitle">
-    {scores_count} scores across {sets_count} sets by {composers_count} composers.
+    {scores_count} scores by {composers_count} composers.
     Click any column header to sort; use the search box to filter (across any field).    
   </p>
   <p>
@@ -288,6 +288,16 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   These PDFs are made directly from the MuseScore;
   layout should be correct but there be occasional issues
   (please report any you come across).
+  </p>
+  <p>
+  External links are provided to:
+  <ol>
+      <li>'IMSLP' for the source edition (PDF) on which ours is based.
+      <li>'MuseScore.com' to view and play online
+      (but note that downloads are behind a paywall, so use the score/part download links instead)
+      <li>'OurText' to view and even edit the mxl form online.
+      <li>'Recording' to view a YouTube recording (available in about 2/3 of cases).
+  </ol>           
   </p>
   <p>
   We hope you enjoy this resource!
