@@ -169,10 +169,10 @@ def render_row(row: dict) -> str:
 
     ext_links = []
     for key, label in [
-        ("imslp_url", "IMSLP"),
+        ("imslp_url", "IMSLP.org"),
         ("musescore_url", "MuseScore.com"),
         ("ourtext_url", "OurTextScores.com"),
-        ("recording_url", "Recording"),
+        ("recording_url", "YouTube.com"),
     ]:
         url = row.get(key)
         if url and url.startswith(("http://", "https://")):
@@ -292,11 +292,11 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <p>
   External links are provided to:
   <ol>
-      <li>'IMSLP' for the source edition (PDF) on which ours is based.
-      <li>'MuseScore.com' to view and play online
+      <li>IMSLP.org for the source edition (PDF) on which ours is based.
+      <li>MuseScore.com to view and play online
       (but note that downloads are behind a paywall, so use the score/part download links instead)
-      <li>'OurTextScores.com' to view and even edit the mxl form online.
-      <li>'Recording' to view a YouTube recording (available in about 2/3 of cases).
+      <li>OurTextScores.com to view and even edit the mxl form online.
+      <li>YouTube.com to view a YouTube recording (available in about 2/3 of cases).
   </ol>           
   </p>
   <p>
