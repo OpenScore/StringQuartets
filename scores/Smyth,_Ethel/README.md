@@ -1,6 +1,6 @@
 # [Ethel Smyth][composer]
 
-__English composer (1858–1944)__
+__English composer and suffragette (1858–1944)__
 
 [composer]: https://musescore.com/openscore-string-quartets/sets?order=title&text=Smyth,+Ethel
 

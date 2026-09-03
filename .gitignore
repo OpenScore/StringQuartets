@@ -1,7 +1,7 @@
 # .gitignore - Tell Git which files to avoid tracking.
 
 # Binary and generated formats
-*.mscz
+#*.mscz
 #*.mxl
 *.musicxml
 #*.pdf

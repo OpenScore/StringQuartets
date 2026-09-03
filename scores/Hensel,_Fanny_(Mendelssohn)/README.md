@@ -9,5 +9,5 @@ Resource | Description
 [Wikipedia] | Read about this composer.
 [Wikidata] | Get data about this composer.
 
-[Wikipedia]: https://en.wikipedia.org/wiki/Fanny_Mendelssohn
+[Wikipedia]: https://en.wikipedia.org/wiki/Fanny_Hensel
 [Wikidata]: https://www.wikidata.org/wiki/Q57286

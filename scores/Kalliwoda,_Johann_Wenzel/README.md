@@ -1,6 +1,6 @@
 # [Johann Wenzel Kalliwoda][composer]
 
-__Czech violinist and composer (1801–1866)__
+__Bohemian violinist and composer (1801–1866)__
 
 [composer]: https://musescore.com/openscore-string-quartets/sets?order=title&text=Kalliwoda,+Johann
 

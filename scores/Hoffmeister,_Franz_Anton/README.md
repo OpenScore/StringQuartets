@@ -1,6 +1,6 @@
 # [Franz Anton Hoffmeister][composer]
 
-__German composer (1754–1812)__
+__German composer and music publisher (1754–1812)__
 
 [composer]: https://musescore.com/openscore-string-quartets/sets?order=title&text=Hoffmeister,+Franz
 

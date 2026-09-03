@@ -5,10 +5,6 @@ __By [Hugo Wolf][composer]__
 [set]: https://musescore.com/openscore-string-quartets/sets/5574612
 [composer]: https://musescore.com/openscore-string-quartets/sets?order=title&text=Wolf,+Hugo
 
-__Recording:__ [The Zemlinsky Quartet plays Hugo Wolf string quartet][recording]
-
-[recording]: https://www.youtube.com/watch?v=t7lOS1xjY64
-
 Transcribed and maintained by contributors to [OpenScore String Quartets].
 
 [OpenScore String Quartets]: https://musescore.com/openscore-string-quartets

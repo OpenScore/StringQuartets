@@ -5,10 +5,6 @@ __By [Antonín Dvořák][composer]__
 [set]: https://musescore.com/openscore-string-quartets/sets/5108664
 [composer]: https://musescore.com/openscore-string-quartets/sets?order=title&text=Dvořák,+Antonín
 
-__Recording:__ [Dvořák: String Quartet No. 12 in F major, Op. 96, B 179 "American" (with Score)][recording]
-
-[recording]: https://www.youtube.com/watch?v=AAkWb_6McWw
-
 Transcribed and maintained by contributors to [OpenScore String Quartets].
 
 [OpenScore String Quartets]: https://musescore.com/openscore-string-quartets

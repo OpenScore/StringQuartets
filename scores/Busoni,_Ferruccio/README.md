@@ -1,6 +1,6 @@
 # [Ferruccio Busoni][composer]
 
-__Italian composer, pianist, conductor, editor, born 1866 (1866–1924)__
+__Italian composer, pianist, and conductor (1866–1924)__
 
 [composer]: https://musescore.com/openscore-string-quartets/sets?order=title&text=Busoni,+Ferruccio
 
