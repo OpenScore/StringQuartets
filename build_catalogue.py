@@ -115,6 +115,7 @@ def build_rows(composers: dict, sets_: dict, scores: dict) -> list[dict]:
         set_name = set_rec.get("name", "\u2014")
         score_name = score.get("name", "\u2014")
         score_path = score.get("path", "")
+        movements = set_rec.get("movements", 0)
 
         mscx_url = f"{RAW_BASE}/{score_path}/sq{score_id}.mscx"
         mxl_url = f"{RAW_BASE}/{score_path}/sq{score_id}.mxl"
@@ -132,12 +133,16 @@ def build_rows(composers: dict, sets_: dict, scores: dict) -> list[dict]:
             for part_name in PART_NAMES
         }
 
+        # TODO consider requests call to check all URLs exist (in addition to the check_links script).
+
         rows.append(
             {
                 "composer_last": composer_last,
                 "composer_first": composer_first,
                 "set": set_name,
                 "score": score_name,
+                "our_id": score_id,
+                "movements": movements,
                 "mscx_url": mscx_url,
                 "mxl_url": mxl_url,
                 "pdf_url": pdf_url,
@@ -154,6 +159,8 @@ def build_rows(composers: dict, sets_: dict, scores: dict) -> list[dict]:
 
 
 def render_row(row: dict) -> str:
+    our_id = html.escape(str(row["our_id"]))
+    movements = html.escape(str(row["movements"]))
     composer_last = html.escape(row["composer_last"])
     composer_first = html.escape(row["composer_first"])
     score_name = html.escape(row["score"])
@@ -190,6 +197,8 @@ def render_row(row: dict) -> str:
         f"<td>{composer_last}</td>"
         f"<td>{composer_first}</td>"
         f"<td>{score_name}</td>"
+        f"<td>{our_id}</td>"
+        f"<td>{movements}</td>"
         f"<td>{files_cell}</td>"
         f"<td>{parts_cell}</td>"
         f'<td>{external_cell}</td>'
@@ -272,14 +281,16 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <body>
   <h1>OpenScore String Quartets Catalogue</h1>
   <p class="subtitle">
-    {scores_count} scores by {composers_count} composers.
+    {movement_count} movements across
+    {scores_count} quartets by
+    {composers_count} composers.
     Click any column header to sort; use the search box to filter (across any field).    
   </p>
   <p>
   Score files are provided in several formats:
   <ol>
-      <li>MuseScore, for use in MuseScore studio, (layout set out by us, manually),</li>
-      <li>MusicXML, which is usable in almost any score reader, (layout may be broken),</li>
+      <li>MuseScore, for use in MuseScore studio (layout set out by us, manually),</li>
+      <li>MusicXML, which is usable in almost any score reader (layout may be broken),</li>
       <li>PDF images (converted directly from the MuseScore, so layout should be correct).</li>
   </ol>
   </p>
@@ -296,7 +307,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       <li>MuseScore.com to view and play online
       (but note that downloads are behind a paywall, so use the score/part download links instead)
       <li>OurTextScores.com to view and even edit the mxl form online.
-      <li>YouTube.com to view a YouTube recording (available in about 2/3 of cases).
+      <li>YouTube.com to view a YouTube recording (available in most but not all cases).
   </ol>           
   </p>
   <p>
@@ -312,7 +323,9 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       <tr>
         <th>Last Name</th>
         <th>First Name</th>
-        <th>Score</th>
+        <th>Work Title</th>
+        <th>Our ID</th>
+        <th>Mvts</th>
         <th>Score Files</th>
         <th>Part Files</th>
         <th>External</th>
@@ -369,6 +382,7 @@ def main():
 
     page = PAGE_TEMPLATE.format(
         rows=rows_html,
+        movement_count=sum([sets_[item].get("movements", 0) for item in sets_]),
         scores_count=len(rows),
         sets_count=len(sets_),
         composers_count=len(composers),
