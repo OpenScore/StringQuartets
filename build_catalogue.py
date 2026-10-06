@@ -117,7 +117,17 @@ def build_rows(composers: dict, sets_: dict, scores: dict) -> list[dict]:
         score_path = score.get("path", "")
         movements = set_rec.get("movements", 0)
 
-        mscx_url = f"{RAW_BASE}/{score_path}/sq{score_id}.mscx"
+        version = str(score.get("musescore_version", "")).strip()
+        if version.startswith("3"):
+            extension = "mscx"
+        elif version.startswith("4"):
+            extension = "mscz"
+        else:
+            raise ValueError(
+                f"Score {score_id}: unsupported musescore_version {version!r}; "
+                "expected a version starting with 3 or 4"
+            )
+        musescore_url_file = f"{RAW_BASE}/{score_path}/sq{score_id}.{extension}"
         mxl_url = f"{RAW_BASE}/{score_path}/sq{score_id}.mxl"
         pdf_url = f"{RAW_BASE}/{score_path}/sq{score_id}.pdf"
 
@@ -143,7 +153,8 @@ def build_rows(composers: dict, sets_: dict, scores: dict) -> list[dict]:
                 "score": score_name,
                 "our_id": score_id,
                 "movements": movements,
-                "mscx_url": mscx_url,
+                "musescore_file_url": musescore_url_file,
+                "musescore_extension": extension,
                 "mxl_url": mxl_url,
                 "pdf_url": pdf_url,
                 "ourtext_url": ourtext_url,
@@ -164,14 +175,23 @@ def render_row(row: dict) -> str:
     composer_last = html.escape(row["composer_last"])
     composer_first = html.escape(row["composer_first"])
     score_name = html.escape(row["score"])
-    mscx_url = html.escape(row["mscx_url"], quote=True)
+    if row["set"] != row["score"] and row["set"] != "—":
+        score_name = (
+            f'<span class="work-title">{html.escape(row["set"])}</span>'
+            f'<span class="movement-title">{score_name}</span>'
+        )
+    musescore_file_url = html.escape(row["musescore_file_url"], quote=True)
+    download_attrs = ""
+    if row["musescore_extension"] == "mscx":
+        filename = html.escape(f'sq{row["our_id"]}.mscx', quote=True)
+        download_attrs = f' data-download="{filename}" download="{filename}"'
     mxl_url = html.escape(row["mxl_url"], quote=True)
     pdf_url = html.escape(row["pdf_url"], quote=True)
 
     files_cell = (
-        f'<a href="{mscx_url}" target="_blank" rel="noopener">MuseScore</a>; '
-        f'<a href="{mxl_url}" target="_blank" rel="noopener">MusicXML</a>; '
-        f'<a href="{pdf_url}" target="_blank" rel="noopener">PDF</a>'
+        f'<a href="{musescore_file_url}" title="{musescore_file_url}"{download_attrs} target="_blank" rel="noopener">MuseScore</a>; '
+        f'<a href="{mxl_url}" title="{mxl_url}" target="_blank" rel="noopener">MusicXML</a>; '
+        f'<a href="{pdf_url}" title="{pdf_url}" target="_blank" rel="noopener">PDF</a>'
     )
 
     ext_links = []
@@ -184,11 +204,14 @@ def render_row(row: dict) -> str:
         url = row.get(key)
         if url and url.startswith(("http://", "https://")):
             safe = html.escape(url, quote=True)
-            ext_links.append(f'<a href="{safe}" target="_blank" rel="noopener">{label}</a>')
+            ext_links.append(f'<a href="{safe}" title="{safe}" target="_blank" rel="noopener">{label}</a>')
     external_cell = "; ".join(ext_links)
 
     parts_cell = "; ".join(
-        f'<a href="{html.escape(part_url, quote=True)}" target="_blank" rel="noopener">{html.escape(part_name)}</a>'
+        f'<a href="{html.escape(part_url, quote=True)}" '
+        f'title="{html.escape(part_url, quote=True)}" '
+        'target="_blank" '
+        f'rel="noopener">{html.escape(part_name)}</a>'
         for part_name, part_url in row["part_urls"].items()
     )
 
@@ -196,7 +219,7 @@ def render_row(row: dict) -> str:
         "<tr>"
         f"<td>{composer_last}</td>"
         f"<td>{composer_first}</td>"
-        f"<td>{score_name}</td>"
+        f'<td class="title-cell">{score_name}</td>'
         f"<td>{our_id}</td>"
         f"<td>{movements}</td>"
         f"<td>{files_cell}</td>"
@@ -265,6 +288,10 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       text-decoration: underline;
     }}
 
+    .title-cell {{ max-width: 22rem; overflow-wrap: anywhere; }}
+    .work-title, .movement-title {{ display: block; }}
+    .movement-title {{ font-size: 0.9em; color: #555; }}
+
     /* -- DataTables overrides -- */
     .dataTables_wrapper .dataTables_filter input {{
       margin-left: 0.4rem;
@@ -314,10 +341,10 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   We hope you enjoy this resource!
   </p>
   <p>
-  <a href="https://markgotham.github.io/" target="_blank" rel="noopener">Mark Gotham</a>,
+  <a href="https://markgotham.github.io/" title="https://markgotham.github.io/" target="_blank" rel="noopener">Mark Gotham</a>,
   on behalf of the OSQ team.
   </p>
-  
+
   <table id="catalogue">
     <thead>
       <tr>
@@ -339,6 +366,34 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.datatables.net/2.1.7/js/dataTables.min.js"></script>
   <script>
+    // Raw XML normally as plain code in the browser. Download a local Blob instead.
+    document.addEventListener('click', async function (event) {{
+      const link = event.target.closest('a[data-download]');
+      if (!link) return;
+      event.preventDefault();
+      if (link.dataset.busy) return;
+      link.dataset.busy = 'true';
+      link.setAttribute('aria-busy', 'true');
+      try {{
+        const response = await fetch(link.href);
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        const blob = await response.blob();
+        const url = URL.createObjectURL(blob);
+        const download = document.createElement('a');
+        download.href = url;
+        download.download = link.dataset.download;
+        document.body.appendChild(download);
+        download.click();
+        download.remove();
+        setTimeout(function () {{ URL.revokeObjectURL(url); }}, 60000);
+      }} catch (error) {{
+        alert('Download failed: ' + error.message +
+              '. You can right-click the link and choose Save link as.');
+      }} finally {{
+        delete link.dataset.busy;
+        link.removeAttribute('aria-busy');
+      }}
+    }});
     $(document).ready(function () {{
       $('#catalogue').DataTable({{
         pageLength: -1,
@@ -354,7 +409,8 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 
 def main():
     input_dir = Path("./data")
-    out = Path("./data/index.html")
+    # out = Path("./data/index.html")
+    out = Path("../fourscoreandmore.org/openscore/stringquartets/index.html")
 
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--input-dir", default=input_dir)
@@ -382,8 +438,8 @@ def main():
 
     page = PAGE_TEMPLATE.format(
         rows=rows_html,
-        movement_count=sum([sets_[item].get("movements", 0) for item in sets_]),
-        scores_count=len(rows),
+        movement_count=sum(int(record.get("movements", 0)) for record in sets_.values()),
+        scores_count=len({score.get("set_id") for score in scores.values()}),
         sets_count=len(sets_),
         composers_count=len(composers),
     )
